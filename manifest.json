@@ -1,0 +1,80 @@
+{
+  "id": "./",
+  "name": "ООУ „Д-р Владимир Полежиноски“ – Кичево",
+  "short_name": "Училишен портал",
+  "description": "Официјален дигитален портал на ООУ „Д-р Владимир Полежиноски“ – Кичево. Вести, групи, распоред, тестови, известувања и алатки за учење, достапни и офлајн.",
+  "lang": "mk",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#06110b",
+  "theme_color": "#07150e",
+  "categories": ["education", "news", "productivity"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Владимир · AI асистент",
+      "short_name": "Владимир",
+      "description": "Прашај го училишниот AI асистент",
+      "url": "./#ai",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Вести",
+      "short_name": "Вести",
+      "description": "Најнови соопштенија од училиштето",
+      "url": "./#news",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Тестови и распоред",
+      "short_name": "Распоред",
+      "description": "Неделен распоред, тестови и домашни",
+      "url": "./#school",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Поставки и известувања",
+      "short_name": "Поставки",
+      "description": "Известувања, звук и училишни информации",
+      "url": "./#settings",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Јас и алатки",
+      "short_name": "Алатки",
+      "description": "Профил, тајмер, калкулатор и квиз",
+      "url": "./#me",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

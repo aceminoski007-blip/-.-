@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="mk" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <title>ОУ „Д-р Владимир Полежиноски“ · Кичево</title>
+  <meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+  <meta name="description" content="Официјален дигитален портал на ООУ „Д-р Владимир Полежиноски“ – Кичево. Вести, групи, распоред, тестови, известувања и училишни алатки, достапни и офлајн.">
+  <meta name="theme-color" content="#07150e">
+  <meta name="color-scheme" content="dark light">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Училишен портал">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="icons/school-logo.svg" as="image" type="image/svg+xml">
+  <style>html{background:#040c08}</style>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    (function () {
+      var theme = "dark";
+      try {
+        var saved = JSON.parse(localStorage.getItem("schoolhub:theme"));
+        if (saved === "dark" || saved === "light") theme = saved;
+      } catch (error) {}
+      document.documentElement.dataset.theme = theme;
+
+      var ua = navigator.userAgent || "";
+      var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      document.documentElement.dataset.platform = isIOS
+        ? "ios"
+        : (/Android/i.test(ua) ? "android" : "other");
+
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.content = theme === "dark" ? "#07150e" : "#f3f8f4";
+
+      window.__schoolDeferredInstall = null;
+      window.addEventListener("beforeinstallprompt", function (event) {
+        event.preventDefault();
+        window.__schoolDeferredInstall = event;
+        window.dispatchEvent(new Event("school-installable"));
+      });
+    })();
+  </script>
+</head>
+<body>
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-news" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
+      <path d="M7 8h10M7 12h4M7 16h4M15 12h2M15 16h2"></path>
+    </symbol>
+    <symbol id="i-groups" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="8" r="3.5"></circle>
+      <path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 5.5a3 3 0 0 1 0 5.8M18 14.5a5.5 5.5 0 0 1 3.5 5.5"></path>
+    </symbol>
+    <symbol id="i-school" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+      <path d="M16 3v4M8 3v4M3 10h18M8 14h2M14 14h2M8 18h2M14 18h2"></path>
+    </symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+      <path d="M10 21h4"></path>
+    </symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M12 11v6M12 7h.01"></path>
+    </symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="4"></circle>
+      <path d="M4 21a8 8 0 0 1 16 0"></path>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3 4.5 6v5.5c0 4.7 3 8 7.5 9.5 4.5-1.5 7.5-4.8 7.5-9.5V6z"></path>
+      <path d="m8.5 12 2.2 2.2 4.8-5"></path>
+    </symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+    </symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path>
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v12"></path>
+      <path d="m7 10 5 5 5-5"></path>
+      <path d="M5 21h14"></path>
+    </symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 16V4"></path>
+      <path d="m7 9 5-5 5 5"></path>
+      <path d="M5 21h14"></path>
+    </symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <path d="M12 5v14M5 12h14"></path>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m5 12.5 4.2 4.2L19 7"></path>
+    </symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path>
+    </symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 5 4 4M4 20l4.5-1 10-10a2.8 2.8 0 0 0-4-4l-10 10z"></path>
+    </symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 6h18M8 6V4h8v2M19 6l-1 15H6L5 6M10 11v6M14 11v6"></path>
+    </symbol>
+    <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9l5-5V5a2 2 0 0 0-2-2z"></path>
+      <path d="M14 21v-5h5"></path>
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+      <path d="M16 3v4M8 3v4M3 10h18"></path>
+      <path d="m8 15 2.5 2.5L16 13"></path>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M12 7v5l3 2"></path>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M8 5.5v13a1 1 0 0 0 1.54.84l10-6.5a1 1 0 0 0 0-1.68l-10-6.5A1 1 0 0 0 8 5.5z"></path>
+    </symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <rect x="6" y="4" width="4.5" height="16" rx="1.5"></rect>
+      <rect x="13.5" y="4" width="4.5" height="16" rx="1.5"></rect>
+    </symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
+      <path d="M3 3v5h5"></path>
+    </symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="8"></circle>
+      <path d="M12 9v4l2.5 1.5M9 2h6M12 2v3"></path>
+    </symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 3h8v5a4 4 0 0 1-8 0z"></path>
+      <path d="M8 5H4v2a4 4 0 0 0 4 4M16 5h4v2a4 4 0 0 1-4 4M12 12v5M8 21h8M9 17h6"></path>
+    </symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 2 4 14h7l-1 8 9-12h-7z"></path>
+    </symbol>
+    <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"></circle>
+      <circle cx="12" cy="12" r="5"></circle>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+    </symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"></path>
+    </symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m21 3-9.5 18-2.2-7.3L2 11.5z"></path>
+      <path d="M21 3 9.3 13.7"></path>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 3h7v7M10 14 21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"></path>
+    </symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 7h3l2-3h6l2 3h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"></path>
+      <circle cx="12" cy="13" r="4"></circle>
+    </symbol>
+    <symbol id="i-wifi-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m2 2 20 20M8.5 8.5a9 9 0 0 1 12.3 1.3M4.2 9.8a9 9 0 0 1 2.2-1.3M8.5 14.5a5 5 0 0 1 7 0M12 20h.01"></path>
+    </symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12.5a10 10 0 0 1 14 0M8 15.5a6 6 0 0 1 8 0M11 18.5a2 2 0 0 1 2 0"></path>
+      <circle cx="12" cy="21" r=".6" fill="currentColor" stroke="none"></circle>
+    </symbol>
+    <symbol id="i-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10.3 3.9 2.5 17.4A2 2 0 0 0 4.2 20h15.6a2 2 0 0 0 1.7-2.6L13.7 3.9a2 2 0 0 0-3.4 0z"></path>
+      <path d="M12 9v4M12 17h.01"></path>
+    </symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 3 1.5 4.2L18 9l-4.5 1.8L12 15l-1.5-4.2L6 9l4.5-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1z"></path>
+    </symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+      <circle cx="12" cy="10" r="2.5"></circle>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+      <path d="m4 7 8 6 8-6"></path>
+    </symbol>
+    <symbol id="i-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5 6 9H3v6h3l5 4zM15 9a4 4 0 0 1 0 6M18 6a7 7 0 0 1 0 12"></path>
+    </symbol>
+    <symbol id="i-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5 6 9H3v6h3l5 4zM22 9l-6 6M16 9l6 6"></path>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 4 5 5-3 1-5 5v3l-2 2-1-5-5-1 2-2h3l5-5z"></path>
+    </symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M11 18l-6-6 6-6"></path>
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 11a8 8 0 1 0-2.3 5.7"></path>
+      <path d="M20 4v7h-7"></path>
+    </symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2" width="16" height="20" rx="3"></rect>
+      <path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"></path>
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22zM4 20.5A2.5 2.5 0 0 1 6.5 18H20"></path>
+    </symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 3h6M10 3v5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V3M7.5 15h9"></path>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+    </symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"></path>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="10" width="16" height="11" rx="3"></rect>
+      <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"></path>
+    </symbol>
+    <symbol id="i-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="10" width="16" height="11" rx="3"></rect>
+      <path d="M8 10V7a4 4 0 0 1 7.5-2M12 14v3"></path>
+    </symbol>
+    <symbol id="i-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 3h12l4 4v14H3V3z"></path>
+      <path d="M7 3v6h9V3M7 21v-7h10v7"></path>
+    </symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 5h16M7 12h10M10 19h4"></path>
+    </symbol>
+    <symbol id="i-graduation-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m2 9 10-5 10 5-10 5zM6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5M22 9v6"></path>
+    </symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 11 16-6v14L3 13zM7 14v4a2 2 0 0 0 2 2h1v-5M19 8a4 4 0 0 1 0 8"></path>
+    </symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="4" width="14" height="18" rx="3"></rect>
+      <path d="M9 4a3 3 0 0 1 6 0M8 10h8M8 14h8M8 18h5"></path>
+    </symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path>
+      <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path>
+    </symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3.2"></circle>
+      <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.11a1.7 1.7 0 0 0-1.11-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.11a1.7 1.7 0 0 0 1.56-1.11 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1.03-1.56V3a2 2 0 1 1 4 0v.11a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.56 1.03H21a2 2 0 1 1 0 4h-.11a1.7 1.7 0 0 0-1.49.97z"></path>
+    </symbol>
+  </svg>
+
+  <div class="splash" id="splashScreen" role="status" aria-label="Апликацијата се вчитува">
+    <div class="splash-glow" aria-hidden="true"></div>
+    <div class="splash-inner">
+      <div class="splash-logo-wrap">
+        <span class="splash-ring" aria-hidden="true"></span>
+        <img class="splash-logo" src="icons/school-logo.svg" alt="Лого на училиштето">
+      </div>
+      <p class="splash-eyebrow">ООУ · Кичево</p>
+      <h1 class="splash-title">Д-р Владимир Полежиноски</h1>
+      <p class="splash-years">1982 – 2026</p>
+      <div class="splash-loader" aria-hidden="true"><span></span></div>
+      <p class="splash-status">Училишниот портал се подготвува…</p>
+    </div>
+  </div>
+
+  <div class="welcome-gate" id="welcomeGate" hidden>
+    <div class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+      <span class="welcome-logo" aria-hidden="true"><img src="icons/school-logo.svg" alt=""></span>
+      <p class="eyebrow">Добредојде во училишниот портал</p>
+      <h1 id="welcomeTitle">Кој си ти?</h1>
+      <p class="welcome-sub">Избери улога за да го прилагодиме порталот. Можеш да ја промениш подоцна во „Поставки“.</p>
+
+      <div class="welcome-roles" role="group" aria-label="Избери улога">
+        <button class="welcome-role" type="button" data-welcome-role="student" aria-pressed="false">
+          <span class="welcome-role-icon"><svg class="icon"><use href="#i-graduation-cap"></use></svg></span>
+          <span class="welcome-role-copy">
+            <strong>Ученик / Ученичка</strong>
+            <small>Вести, задачи, оценки и групи</small>
+          </span>
+          <span class="welcome-role-check"><svg class="icon"><use href="#i-check"></use></svg></span>
+        </button>
+        <button class="welcome-role" type="button" data-welcome-role="teacher" aria-pressed="false">
+          <span class="welcome-role-icon"><svg class="icon"><use href="#i-book"></use></svg></span>
+          <span class="welcome-role-copy">
+            <strong>Наставник / Наставничка</strong>
+            <small>Вести, тестови и водење групи</small>
+          </span>
+          <span class="welcome-role-check"><svg class="icon"><use href="#i-check"></use></svg></span>
+        </button>
+        <button class="welcome-role" type="button" data-welcome-role="parent" aria-pressed="false">
+          <span class="welcome-role-icon"><svg class="icon"><use href="#i-user"></use></svg></span>
+          <span class="welcome-role-copy">
+            <strong>Родител</strong>
+            <small>Вест за детето и оценки</small>
+          </span>
+          <span class="welcome-role-check"><svg class="icon"><use href="#i-check"></use></svg></span>
+        </button>
+      </div>
+
+      <form class="welcome-form" id="welcomeForm" autocomplete="off">
+        <label class="field">
+          <span>Име и презиме</span>
+          <input id="welcomeName" type="text" maxlength="40" placeholder="На пример: Ана Стојаноска" required>
+        </label>
+        <label class="field" id="welcomeClassField">
+          <span>Одделение</span>
+          <input id="welcomeClass" type="text" maxlength="12" placeholder="На пример: VI-1">
+        </label>
+        <p class="welcome-error" id="welcomeError" role="alert" hidden>Избери улога за да продолжиш.</p>
+        <button class="btn btn-primary btn-wide" type="submit">
+          <svg class="icon"><use href="#i-check"></use></svg>
+          Влези во порталот
+        </button>
+      </form>
+      <p class="welcome-note">Податоците остануваат само на твојот уред.</p>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <header class="topbar" aria-label="ООУ „Д-р Владимир Полежиноски“ 1982 – 2026">
+      <div class="brand">
+        <img class="brand-logo" src="icons/school-logo.svg" alt="">
+        <span class="brand-copy">
+          <span class="brand-eyebrow">ООУ · Кичево · 1982 – 2026</span>
+          <span class="brand-name">„Д-р Владимир Полежиноски“</span>
+        </span>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="installTopBtn" type="button" aria-label="Инсталирај ја апликацијата" title="Инсталирај">
+          <svg class="icon"><use href="#i-download"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="offline-bar" id="offlineBar" hidden>
+      <svg class="icon"><use href="#i-wifi-off"></use></svg>
+      <span>Нема интернет — порталот работи офлајн.</span>
+    </div>
+
+    <div class="pull-indicator" id="pullIndicator" aria-hidden="true">
+      <span class="pull-icon"><svg class="icon"><use href="#i-refresh"></use></svg></span>
+      <span id="pullText">Повлечи за освежување</span>
+    </div>
+
+    <main class="app-main" id="appMain">
+      <div class="install-banner" id="installBanner" hidden>
+        <span class="install-banner-icon" aria-hidden="true"><img src="icons/school-logo.svg" alt=""></span>
+        <div class="install-banner-copy">
+          <strong>Инсталирај го училишниот портал</strong>
+          <span>Брз пристап од почетниот екран, и без интернет</span>
+        </div>
+        <button class="btn btn-sm btn-primary" id="installBannerBtn" type="button">Инсталирај</button>
+        <button class="icon-btn install-dismiss" id="installDismissBtn" type="button" aria-label="Затвори">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </div>
+
+      <!-- 1 · ВЕСТИ -->
+      <section class="view is-active" id="view-news" data-view="news" aria-labelledby="newsTitle">
+        <div class="news-hero">
+          <div class="news-hero-top">
+            <span class="hero-logo"><img src="icons/school-logo.svg" alt=""></span>
+            <span class="hero-date" id="heroDate">Денес</span>
+          </div>
+          <p class="news-hero-eyebrow">Училишен живот · 1982 – 2026</p>
+          <h1 id="newsTitle">Вести и соопштенија</h1>
+          <p>Биди во тек со настаните, успесите и важните информации од нашето училиште.</p>
+          <div class="hero-stats">
+            <span><strong id="newsCount">0</strong> објави</span>
+            <span><strong id="heroUnread">0</strong> нови известувања</span>
+          </div>
+        </div>
+
+        <div class="page-head compact-head">
+          <div>
+            <p class="eyebrow">Објавено од училиштето</p>
+            <h2>Најново</h2>
+          </div>
+          <span class="pill" id="newsFilterLabel"><svg class="icon"><use href="#i-filter"></use></svg> Сите</span>
+        </div>
+
+        <div class="chip-row scroll-x" id="newsFilters" role="group" aria-label="Филтер на вести">
+          <button class="chip is-active" type="button" data-news-filter="all">Сите</button>
+          <button class="chip" type="button" data-news-filter="announcement">Соопштенија</button>
+          <button class="chip" type="button" data-news-filter="event">Настани</button>
+          <button class="chip" type="button" data-news-filter="success">Успеси</button>
+          <button class="chip" type="button" data-news-filter="project">Проекти</button>
+        </div>
+
+        <div class="news-list" id="newsList"></div>
+        <div class="empty-state" id="newsEmpty" hidden>
+          <span class="empty-icon"><svg class="icon"><use href="#i-news"></use></svg></span>
+          <strong>Нема објави во оваа категорија</strong>
+          <p>Избери друга категорија или провери подоцна.</p>
+          <button class="btn btn-soft btn-sm" id="newsResetFilterBtn" type="button">Прикажи сите</button>
+        </div>
+      </section>
+
+      <!-- 2 · ГРУПИ -->
+      <section class="view" id="view-groups" data-view="groups" aria-labelledby="groupsTitle" hidden>
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Учиме заедно</p>
+            <h1 id="groupsTitle">Групи</h1>
+          </div>
+          <div class="groups-head-actions">
+            <span class="pill"><svg class="icon"><use href="#i-groups"></use></svg> <span id="groupsCount">0</span> групи</span>
+            <button class="icon-btn" id="addGroupBtn" type="button" aria-label="Додај нова група" title="Додај група">
+              <svg class="icon"><use href="#i-plus"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <section class="card group-intro">
+          <span class="tool-icon tone-green"><svg class="icon"><use href="#i-groups"></use></svg></span>
+          <div>
+            <h2>Училишни групи</h2>
+            <p>Отвори група за да ги видиш најновите пораки од наставниците и соучениците, или вклучи се во разговорот.</p>
+          </div>
+        </section>
+
+        <div class="group-list" id="groupList"></div>
+        <div class="empty-state" id="groupsEmpty" hidden>
+          <span class="empty-icon"><svg class="icon"><use href="#i-groups"></use></svg></span>
+          <strong>Нема достапни групи</strong>
+          <p>Групите ќе се појават кога администраторот ќе ги додаде.</p>
+        </div>
+      </section>
+
+      <!-- 3 · ТЕСТОВИ И РАСПОРЕД -->
+      <section class="view" id="view-school" data-view="school" aria-labelledby="schoolTitle" hidden>
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Организирај го учењето</p>
+            <h1 id="schoolTitle">Тестови и распоред</h1>
+          </div>
+          <span class="progress-pill" title="Завршени задачи">
+            <span class="progress-dot" aria-hidden="true"></span>
+            <span id="assignmentProgress">0/0</span>
+          </span>
+        </div>
+
+        <section class="card schedule-card" aria-labelledby="scheduleTitle">
+          <div class="section-head">
+            <div>
+              <h2 id="scheduleTitle">Неделен распоред</h2>
+              <p class="section-subtitle" id="scheduleLabel">Избери ден</p>
+            </div>
+            <span class="pill pill-gold"><svg class="icon"><use href="#i-calendar"></use></svg> <span id="scheduleToday">Денес</span></span>
+          </div>
+          <div class="day-tabs scroll-x" id="scheduleDays" role="tablist" aria-label="Денови од неделата"></div>
+          <div class="schedule-list" id="scheduleList" role="list"></div>
+        </section>
+
+        <form class="card assignment-composer" id="assignmentForm" autocomplete="off">
+          <div class="section-head">
+            <div>
+              <h2>Нов тест или домашна</h2>
+              <p class="section-subtitle">Запиши што те чека и кога е рокот.</p>
+            </div>
+          </div>
+          <label class="field">
+            <span>Наслов</span>
+            <input id="assignmentTitle" type="text" maxlength="100" placeholder="На пример: Контролен тест по математика" required>
+          </label>
+          <div class="calc-fields">
+            <label class="field">
+              <span>Предмет</span>
+              <select id="assignmentSubject">
+                <option>Македонски јазик</option>
+                <option>Математика</option>
+                <option>Англиски јазик</option>
+                <option>Природни науки</option>
+                <option>Историја</option>
+                <option>Географија</option>
+                <option>Физичко образование</option>
+                <option>Изборен предмет</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Вид</span>
+              <select id="assignmentType">
+                <option value="test">Тест</option>
+                <option value="homework">Домашна</option>
+                <option value="project">Проект</option>
+                <option value="quiz">Квиз</option>
+              </select>
+            </label>
+            <label class="field field-full">
+              <span>Рок</span>
+              <input id="assignmentDue" type="date" required>
+            </label>
+          </div>
+          <button class="btn btn-primary btn-wide" type="submit">
+            <svg class="icon"><use href="#i-plus"></use></svg>
+            Додај во моите задачи
+          </button>
+        </form>
+
+        <div class="section-head">
+          <h2>Мои задачи</h2>
+          <div class="segmented" id="assignmentFilters" role="group" aria-label="Филтер на задачи">
+            <button class="seg-btn is-active" type="button" data-assignment-filter="all">Сите</button>
+            <button class="seg-btn" type="button" data-assignment-filter="active">Активни</button>
+            <button class="seg-btn" type="button" data-assignment-filter="done">Завршени</button>
+          </div>
+        </div>
+        <div class="task-list" id="assignmentList" role="list"></div>
+        <div class="empty-state" id="assignmentEmpty" hidden>
+          <span class="empty-icon"><svg class="icon"><use href="#i-clipboard"></use></svg></span>
+          <strong>Нема задачи</strong>
+          <p>Додај тест, домашна или проект и следи го рокот.</p>
+        </div>
+      </section>
+
+      <!-- 4 · ВЛАДИМИР · AI АСИСТЕНТ -->
+      <section class="view" id="view-ai" data-view="ai" aria-labelledby="aiTitle" hidden>
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Твој училишен асистент</p>
+            <h1 id="aiTitle">Владимир</h1>
+          </div>
+          <span class="pill pill-gold">
+            <span class="progress-dot" aria-hidden="true"></span>
+            Офлајн AI
+          </span>
+        </div>
+
+        <section class="card ai-card" aria-label="Разговор со Владимир">
+          <div class="ai-hero">
+            <span class="ai-hero-avatar"><img src="icons/school-logo.svg" alt=""></span>
+            <div class="ai-hero-copy">
+              <strong>Владимир</strong>
+              <span>Училишен асистент · работи офлајн</span>
+            </div>
+            <button class="icon-btn" id="aiClearBtn" type="button" aria-label="Исчисти разговор" title="Исчисти разговор">
+              <svg class="icon"><use href="#i-trash"></use></svg>
+            </button>
+          </div>
+
+          <div class="ai-log" id="aiLog" role="log" aria-live="polite" aria-relevant="additions" aria-label="Разговор со Владимир"></div>
+
+          <div class="ai-typing" id="aiTyping" role="status" hidden>
+            <span></span><span></span><span></span>
+            <em>Владимир пишува…</em>
+          </div>
+
+          <div class="ai-suggestions" id="aiSuggestions" aria-label="Предлози за прашања">
+            <button type="button" class="ai-chip" data-ai-prompt="Денешен распоред">Денешен распоред</button>
+            <button type="button" class="ai-chip" data-ai-prompt="Кои задачи ми претстојат?">Мои задачи</button>
+            <button type="button" class="ai-chip" data-ai-prompt="Колку ми е просекот?">Просек на оценки</button>
+            <button type="button" class="ai-chip" data-ai-prompt="Најнови вести">Најнови вести</button>
+            <button type="button" class="ai-chip" data-ai-prompt="Информации за училиштето">Училиште</button>
+            <button type="button" class="ai-chip" data-ai-prompt="Помош">Помош</button>
+          </div>
+
+          <form class="ai-compose" id="aiForm" autocomplete="off">
+            <label class="sr-only" for="aiInput">Прашај го Владимир</label>
+            <input id="aiInput" type="text" maxlength="300" placeholder="Прашај ме за распоред, задачи, оценки…" enterkeyhint="send" autocapitalize="sentences" autocorrect="on" spellcheck="false">
+            <button class="ai-send" type="submit" aria-label="Испрати порака">
+              <svg class="icon"><use href="#i-send"></use></svg>
+            </button>
+          </form>
+        </section>
+
+        <p class="ai-footnote">Владимир работи локално на твојот уред и не испраќа податоци на интернет.</p>
+      </section>
+
+      <!-- 5 · ПОСТАВКИ -->
+      <section class="view" id="view-settings" data-view="settings" aria-labelledby="settingsTitle" hidden>
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Прилагоди го порталот</p>
+            <h1 id="settingsTitle">Поставки</h1>
+          </div>
+          <span class="pill"><svg class="icon"><use href="#i-settings"></use></svg> Локално</span>
+        </div>
+
+        <section class="card settings-account" aria-labelledby="settingsAccountTitle">
+          <h2 class="sr-only" id="settingsAccountTitle">Твој профил</h2>
+          <div class="settings-account-row">
+            <span class="avatar avatar-sm" id="settingsAvatar" aria-hidden="true">У</span>
+            <div class="settings-account-copy">
+              <strong id="settingsName">Ученик</strong>
+              <span id="settingsRole">Ученик / Ученичка</span>
+            </div>
+            <button class="btn btn-soft btn-sm" id="settingsEditProfile" type="button">
+              <svg class="icon"><use href="#i-edit"></use></svg>
+              Уреди
+            </button>
+          </div>
+        </section>
+
+        <section class="card notif-settings" aria-labelledby="notifSettingsTitle">
+          <div class="section-head">
+            <div>
+              <h2 id="notifSettingsTitle">Известувања</h2>
+              <p class="section-subtitle">Звук и потсетници на овој уред</p>
+            </div>
+            <span class="pill pill-gold" title="Непрочитани известувања">
+              <span class="progress-dot" aria-hidden="true"></span>
+              <span id="notifUnreadCount">0</span>
+            </span>
+          </div>
+          <label class="toggle-row">
+            <input type="checkbox" id="soundToggle" checked>
+            <span class="switch" aria-hidden="true"></span>
+            <span>Звучен сигнал <small>за нови известувања, тајмер и квиз</small></span>
+          </label>
+          <div class="notif-actions">
+            <button class="btn btn-soft btn-sm" id="markAllReadBtn" type="button">
+              <svg class="icon"><use href="#i-check"></use></svg>
+              Означи сите како прочитани
+            </button>
+            <button class="btn btn-ghost btn-sm" id="clearReadBtn" type="button">
+              <svg class="icon"><use href="#i-trash"></use></svg>
+              Исчисти прочитани
+            </button>
+          </div>
+        </section>
+
+        <div class="section-head settings-section-head">
+          <div>
+            <h2 id="themeSettingsTitle">Тема</h2>
+            <p class="section-subtitle">Темна или светла оформенија</p>
+          </div>
+          <span class="pill pill-gold">Оформенија</span>
+        </div>
+        <label class="toggle-row">
+          <input type="checkbox" id="themeToggle" checked>
+          <span class="switch" aria-hidden="true"></span>
+          <span>Темна тема <small>Промени изглед на порталот</small></span>
+        </label>
+
+        <div class="section-head">
+          <h2>Неодамнешни известувања</h2>
+          <span class="count-badge" id="notifCount">0</span>
+        </div>
+        <div class="notif-list" id="notifList"></div>
+        <div class="empty-state" id="notifEmpty" hidden>
+          <span class="empty-icon"><svg class="icon"><use href="#i-bell"></use></svg></span>
+          <strong>Нема известувања</strong>
+          <p>Кога ќе има нова важна информација, ќе се појави овде.</p>
+        </div>
+        <div class="settings-divider" role="presentation"></div>
+
+        <div class="section-head settings-section-head">
+          <div>
+            <h2 id="infoTitle">Училиште и инфо</h2>
+            <p class="section-subtitle">Официјални податоци и административни белешки</p>
+          </div>
+          <span class="pill pill-gold"><svg class="icon"><use href="#i-shield"></use></svg> Официјално</span>
+        </div>
+
+        <section class="card school-card">
+          <div class="school-card-glow" aria-hidden="true"></div>
+          <div class="school-emblem-wrap">
+            <img class="school-emblem" src="icons/school-logo.svg" alt="Лого на ООУ „Д-р Владимир Полежиноски“">
+          </div>
+          <p class="eyebrow">Основно училиште · Кичево</p>
+          <h2 class="school-name">ООУ „Д-р Владимир Полежиноски“</h2>
+          <p class="school-years">1982 – 2026</p>
+          <div class="school-contacts">
+            <a class="school-contact" href="https://www.google.com/maps/search/?api=1&amp;query=%D1%83%D0%BB.+%D0%90%D1%80%D1%81%D0%BE+%D0%92%D0%BE%D1%98%D0%B2%D0%BE%D0%B4%D0%B0%2C+%D0%9A%D0%B8%D1%87%D0%B5%D0%B2%D0%BE" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon"><svg class="icon"><use href="#i-map-pin"></use></svg></span>
+              <span><small>Адреса</small><strong>ул. Арсо Војвода, Кичево</strong></span>
+              <svg class="icon chevron"><use href="#i-external"></use></svg>
+            </a>
+            <a class="school-contact" href="tel:070656494">
+              <span class="contact-icon"><svg class="icon"><use href="#i-phone"></use></svg></span>
+              <span><small>Телефон</small><strong>070 656 494</strong></span>
+              <svg class="icon chevron"><use href="#i-external"></use></svg>
+            </a>
+          </div>
+          <div class="info-actions">
+            <button class="btn btn-soft btn-sm" id="copyAddressBtn" type="button">
+              <svg class="icon"><use href="#i-copy"></use></svg>
+              Копирај адреса
+            </button>
+            <button class="btn btn-ghost btn-sm" id="infoShareBtn" type="button">
+              <svg class="icon"><use href="#i-share"></use></svg>
+              Сподели портал
+            </button>
+          </div>
+        </section>
+
+        <section class="card principal-card">
+          <div class="principal-head">
+            <span class="principal-avatar" aria-hidden="true"><svg class="icon"><use href="#i-graduation-cap"></use></svg></span>
+            <div>
+              <p class="eyebrow">Обраќање</p>
+              <h2>Од директорот</h2>
+            </div>
+          </div>
+          <blockquote>Почитувани ученици, родители и наставници, добредојдовте на дигиталниот портал на нашето училиште. Нека ова биде место каде што информациите се достапни, а учењето — заедничко искуство.</blockquote>
+          <p class="principal-sign">Со почит,<br><strong>Директорот на училиштето</strong></p>
+        </section>
+
+        <section class="card admin-notes-card">
+          <div class="section-head">
+            <h2>Административни белешки</h2>
+            <span class="tool-icon tone-green"><svg class="icon"><use href="#i-info"></use></svg></span>
+          </div>
+          <ul class="admin-notes">
+            <li><span>01</span><p>Училиштето е самостојно основно училиште со ученици од I до IX одделение.</p></li>
+            <li><span>02</span><p>За сите прашања во врска со наставата и администрацијата, јавете се на официјалниот телефон.</p></li>
+            <li><span>03</span><p>Официјални соопштенија и промени се објавуваат во делот „Вести“ и во „Поставки“ → „Известувања“.</p></li>
+          </ul>
+        </section>
+
+        <section class="card offline-card">
+          <span class="tool-icon tone-mint"><svg class="icon"><use href="#i-wifi"></use></svg></span>
+          <div>
+            <strong>Порталот е достапен офлајн</strong>
+            <p>Откако ќе го отвориш еднаш, можеш да пристапиш до вестите, распоредот и алатките и без интернет.</p>
+          </div>
+          <span class="offline-ready"><svg class="icon"><use href="#i-check"></use></svg> Офлајн</span>
+        </section>
+      </section>
+
+      <!-- 6 · ЈАС И АЛАТКИ -->
+      <section class="view" id="view-me" data-view="me" aria-labelledby="meTitle" hidden>
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Твојот училишен простор</p>
+            <h1 id="meTitle">Јас и алатки</h1>
+          </div>
+          <button class="icon-btn" id="profileEditTop" type="button" aria-label="Уреди профил" title="Уреди профил">
+            <svg class="icon"><use href="#i-edit"></use></svg>
+          </button>
+        </div>
+
+        <section class="card profile-card">
+          <div class="profile-cover" aria-hidden="true">
+            <span class="cover-orb orb-one"></span>
+            <span class="cover-orb orb-two"></span>
+            <span class="cover-grid"></span>
+          </div>
+          <div class="profile-body">
+            <div class="avatar" id="profileAvatar">У</div>
+            <div class="profile-name-row">
+              <h2 id="profileName">Ученик</h2>
+              <span class="class-badge" id="profileClass">VI-1</span>
+              <span class="role-badge" id="profileRole">Ученик</span>
+              <span class="profile-status" title="Локален профил"><svg class="icon"><use href="#i-check"></use></svg></span>
+            </div>
+            <p class="profile-bio" id="profileBio">Добредојде во мојот училишен простор.</p>
+            <div class="profile-stats">
+              <div><strong id="profileTasksDone">0</strong><span>завршени задачи</span></div>
+              <div><strong id="profileNotesCount">0</strong><span>белешки</span></div>
+              <div><strong id="profileQuizBest">0</strong><span>поени</span></div>
+            </div>
+            <div class="profile-actions">
+              <button class="btn btn-soft" id="editProfileBtn" type="button">
+                <svg class="icon"><use href="#i-edit"></use></svg>
+                Уреди профил
+              </button>
+              <button class="btn btn-ghost" id="shareProfileBtn" type="button">
+                <svg class="icon"><use href="#i-share"></use></svg>
+                Сподели
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card tool-card pomodoro-card" id="pomodoroCard" aria-labelledby="focusTitle">
+          <div class="tool-head">
+            <span class="tool-icon tone-green"><svg class="icon"><use href="#i-timer"></use></svg></span>
+            <div>
+              <h2 id="focusTitle">Тајмер за учење</h2>
+              <p>Фокусирај се, па направи кратка пауза</p>
+            </div>
+          </div>
+          <div class="pomo-settings">
+            <label class="pomo-setting">Фокус
+              <span><input id="focusMinutes" type="number" inputmode="numeric" min="1" max="90" value="25"> мин</span>
+            </label>
+            <label class="pomo-setting">Пауза
+              <span><input id="breakMinutes" type="number" inputmode="numeric" min="1" max="30" value="5"> мин</span>
+            </label>
+          </div>
+          <div class="pomodoro-stage">
+            <svg class="pomodoro-ring" viewBox="0 0 240 240" aria-hidden="true">
+              <defs>
+                <linearGradient id="pomoGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#7fe3b0"></stop>
+                  <stop offset="1" stop-color="#1d8a5a"></stop>
+                </linearGradient>
+              </defs>
+              <circle class="ring-track" cx="120" cy="120" r="104"></circle>
+              <circle class="ring-progress" id="pomodoroRing" cx="120" cy="120" r="104"></circle>
+            </svg>
+            <div class="pomodoro-center">
+              <span class="pomo-mode" id="pomodoroMode">Фокус</span>
+              <strong class="pomo-time" id="pomodoroTime">25:00</strong>
+              <span class="pomo-sessions" id="pomodoroSessions">0 завршени сесии</span>
+            </div>
+          </div>
+          <div class="pomo-actions">
+            <button class="btn btn-primary" id="pomodoroStart" type="button">
+              <svg class="icon"><use href="#i-play"></use></svg>
+              <span>Започни</span>
+            </button>
+            <button class="icon-btn icon-btn-lg" id="pomodoroReset" type="button" aria-label="Ресетирај тајмер" title="Ресетирај">
+              <svg class="icon"><use href="#i-reset"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="card grade-card" aria-labelledby="gradeTitle">
+          <div class="tool-head">
+            <span class="tool-icon tone-gold"><svg class="icon"><use href="#i-calculator"></use></svg></span>
+            <div>
+              <h2 id="gradeTitle">Калкулатор за оценки</h2>
+              <p>Пресметај просек или поени од тест</p>
+            </div>
+          </div>
+          <div class="segmented grade-tabs" id="gradeTabs" role="tablist" aria-label="Начин на пресметка">
+            <button class="seg-btn is-active" type="button" data-grade-mode="average" role="tab" aria-selected="true">Просек</button>
+            <button class="seg-btn" type="button" data-grade-mode="points" role="tab" aria-selected="false">Поени</button>
+          </div>
+
+          <div class="grade-panel" id="gradeAveragePanel" role="tabpanel">
+            <div class="grade-entry">
+              <label class="field">
+                <span>Оценка (1–5)</span>
+                <input id="gradeInput" type="number" inputmode="decimal" min="1" max="5" step="0.5" placeholder="4.5">
+              </label>
+              <button class="btn btn-primary" id="addGradeBtn" type="button">
+                <svg class="icon"><use href="#i-plus"></use></svg>
+                Додај
+              </button>
+            </div>
+            <div class="grade-chips" id="gradeChips"></div>
+            <div class="calc-result grade-result">
+              <div>
+                <span>Просек</span>
+                <strong id="gradeAverage">—</strong>
+              </div>
+              <div>
+                <span>Оценки</span>
+                <strong id="gradeCount">0</strong>
+              </div>
+              <p id="gradeMessage">Внеси оценки за да го пресметаш просекот.</p>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="clearGradesBtn" type="button">
+              <svg class="icon"><use href="#i-trash"></use></svg>
+              Исчисти оценки
+            </button>
+          </div>
+
+          <div class="grade-panel" id="gradePointsPanel" role="tabpanel" hidden>
+            <div class="calc-fields">
+              <label class="field">
+                <span>Освоени поени</span>
+                <input id="pointsEarned" type="number" inputmode="decimal" min="0" step="0.5" placeholder="0">
+              </label>
+              <label class="field">
+                <span>Максимум поени</span>
+                <input id="pointsMax" type="number" inputmode="decimal" min="1" step="0.5" value="100">
+              </label>
+            </div>
+            <div class="calc-result points-result">
+              <div>
+                <span>Процент</span>
+                <strong id="pointsResult">—</strong>
+              </div>
+              <div>
+                <span>Оценка</span>
+                <strong id="pointsGrade">—</strong>
+              </div>
+              <p id="pointsMessage">Внеси поени за да ја видиш оценката.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="notes-section" aria-labelledby="notesTitle">
+          <div class="section-head">
+            <h2 id="notesTitle">Мои белешки</h2>
+            <span class="count-badge" id="notesCount">0</span>
+          </div>
+          <form class="card note-composer" id="noteForm">
+            <label class="sr-only" for="noteInput">Нова белешка</label>
+            <textarea id="noteInput" rows="2" maxlength="240" placeholder="Запиши мисла, задача или потсетник…"></textarea>
+            <div class="note-form-bottom">
+              <div class="color-picker" id="noteColors" role="group" aria-label="Боја на белешката">
+                <button class="color-dot note-yellow is-selected" type="button" data-note-color="yellow" aria-label="Жолта" aria-pressed="true"></button>
+                <button class="color-dot note-mint" type="button" data-note-color="mint" aria-label="Ментол" aria-pressed="false"></button>
+                <button class="color-dot note-pink" type="button" data-note-color="pink" aria-label="Розова" aria-pressed="false"></button>
+                <button class="color-dot note-blue" type="button" data-note-color="blue" aria-label="Сина" aria-pressed="false"></button>
+              </div>
+              <button class="btn btn-primary btn-sm" type="submit">
+                <svg class="icon"><use href="#i-plus"></use></svg>
+                Зачувај
+              </button>
+            </div>
+          </form>
+          <div class="notes-grid" id="noteList"></div>
+          <div class="empty-state compact" id="notesEmpty" hidden>
+            <span class="empty-icon"><svg class="icon"><use href="#i-note"></use></svg></span>
+            <strong>Сè уште нема белешки</strong>
+            <p>Твоите училишни белешки ќе се појават овде.</p>
+          </div>
+        </section>
+
+        <section class="card game-card quiz-card" aria-labelledby="quizTitle">
+          <div class="quiz-intro" id="quizIntro">
+            <div class="quiz-art" aria-hidden="true">
+              <span class="quiz-art-orbit"></span>
+              <span class="quiz-art-icon"><svg class="icon"><use href="#i-trophy"></use></svg></span>
+            </div>
+            <h2 id="quizTitle">Училишен квиз</h2>
+            <p>8 прашања · 15 секунди за секое · бонус за брзина</p>
+            <div class="quiz-perks">
+              <span><svg class="icon"><use href="#i-clock"></use></svg> На време</span>
+              <span><svg class="icon"><use href="#i-trophy"></use></svg> Рекорди</span>
+            </div>
+            <button class="btn btn-primary btn-wide" id="quizStartBtn" type="button">
+              <svg class="icon"><use href="#i-play"></use></svg>
+              Започни квиз
+            </button>
+          </div>
+          <div class="quiz-play" id="quizPlay" hidden>
+            <div class="quiz-topline">
+              <span id="quizProgressLabel">Прашање 1 / 8</span>
+              <span class="quiz-score"><svg class="icon"><use href="#i-trophy"></use></svg><strong id="quizScore">0</strong> поени</span>
+            </div>
+            <div class="quiz-timer-row">
+              <div class="quiz-timer-track"><div class="quiz-timer-fill" id="quizTimerFill"></div></div>
+              <span class="quiz-seconds" id="quizTimerText">15 с</span>
+            </div>
+            <h3 class="quiz-question" id="quizQuestion">Прашање</h3>
+            <div class="quiz-answers" id="quizAnswers"></div>
+            <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+            <button class="btn btn-primary btn-wide" id="quizNextBtn" type="button" hidden>Следно прашање</button>
+          </div>
+          <div class="quiz-result" id="quizResult" hidden>
+            <div class="result-medal" id="quizResultMedal"><svg class="icon"><use href="#i-trophy"></use></svg></div>
+            <p class="eyebrow">Квизот е завршен</p>
+            <h3 id="quizResultTitle">Одлично!</h3>
+            <strong class="result-score" id="quizResultScore">0 поени</strong>
+            <p id="quizResultText">Точно одговорени: 0 / 8</p>
+            <button class="btn btn-primary btn-wide" id="quizRestartBtn" type="button">
+              <svg class="icon"><use href="#i-reset"></use></svg>
+              Играј повторно
+            </button>
+          </div>
+        </section>
+
+        <section class="card leaderboard-card" aria-labelledby="leaderboardTitle">
+          <div class="section-head leaderboard-head">
+            <div>
+              <h2 id="leaderboardTitle">Најдобри резултати</h2>
+              <p class="section-subtitle">Твоите најдобри обиди на квизот</p>
+            </div>
+            <span class="mini-trophy"><svg class="icon"><use href="#i-trophy"></use></svg></span>
+          </div>
+          <ol class="leaderboard-list" id="leaderboardList"></ol>
+          <div class="empty-state compact" id="leaderboardEmpty" hidden>
+            <span class="empty-icon"><svg class="icon"><use href="#i-trophy"></use></svg></span>
+            <strong>Нема резултати</strong>
+            <p>Играј го квизот за да се појавиш овде.</p>
+          </div>
+        </section>
+
+        <div class="action-grid">
+          <button class="card action-card" id="shareAppBtn" type="button">
+            <span class="action-icon tone-green"><svg class="icon"><use href="#i-share"></use></svg></span>
+            <span><strong>Сподели го порталот</strong><small>Покажи им го на соучениците</small></span>
+            <svg class="icon action-chevron"><use href="#i-external"></use></svg>
+          </button>
+          <button class="card action-card" id="profileInstallBtn" type="button">
+            <span class="action-icon tone-gold"><svg class="icon"><use href="#i-download"></use></svg></span>
+            <span><strong id="profileInstallTitle">Инсталирај на телефон</strong><small id="profileInstallText">Работи целосно офлајн</small></span>
+            <svg class="icon action-chevron"><use href="#i-external"></use></svg>
+          </button>
+        </div>
+
+        <section class="card about-card">
+          <div class="about-head">
+            <span class="brand-mark small" aria-hidden="true"><img src="icons/school-logo.svg" alt=""></span>
+            <div>
+              <strong>Училишен портал</strong>
+              <span>Верзија 2.5.1 · ООУ „Д-р Владимир Полежиноски“</span>
+            </div>
+            <span class="offline-ready"><svg class="icon"><use href="#i-check"></use></svg> Офлајн</span>
+          </div>
+          <p>Вести, групи, распоред, тестови, известувања и алатки за учење — сè на едно место.</p>
+        </section>
+      </section>
+
+      <!-- 7 · АДМИН -->
+      <section class="view" id="view-admin" data-view="admin" aria-labelledby="adminTitle" hidden>
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Управување со содржината</p>
+            <h1 id="adminTitle">Админ панел</h1>
+          </div>
+          <span class="pill pill-gold"><svg class="icon"><use href="#i-lock"></use></svg> Заштитено</span>
+        </div>
+
+        <section class="card admin-gate" id="adminGate">
+          <span class="admin-lock-icon"><svg class="icon"><use href="#i-lock"></use></svg></span>
+          <h2>Пристап за овластени</h2>
+          <p>Внеси го ПИН кодот за да управуваш со вестите и локалните податоци на уредот.</p>
+          <form id="adminLoginForm" autocomplete="off">
+            <label class="field">
+              <span>ПИН код</span>
+              <input id="adminPin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" placeholder="••••" required>
+            </label>
+            <p class="form-error" id="adminLoginError" hidden>Погрешен ПИН код. Обиди се повторно.</p>
+            <button class="btn btn-primary btn-wide" type="submit">
+              <svg class="icon"><use href="#i-unlock"></use></svg>
+              Отклучи панел
+            </button>
+          </form>
+          <p class="admin-hint" id="adminHint">Демо ПИН код: <strong>1982</strong> · Пристапот важи само на овој уред.</p>
+        </section>
+
+        <div class="admin-panel" id="adminPanel" hidden>
+          <section class="card admin-editor" aria-labelledby="newsEditorTitle">
+            <div class="section-head">
+              <div>
+                <h2 id="newsEditorTitle">Објави вест</h2>
+                <p class="section-subtitle">Додај или уреди училишно соопштение</p>
+              </div>
+              <span class="tool-icon tone-green"><svg class="icon"><use href="#i-megaphone"></use></svg></span>
+            </div>
+            <form id="newsForm" autocomplete="off">
+              <input id="newsId" type="hidden">
+              <label class="field">
+                <span>Наслов</span>
+                <input id="newsTitleInput" type="text" maxlength="90" placeholder="Наслов на објавата" required>
+              </label>
+              <label class="field">
+                <span>Категорија</span>
+                <select id="newsCategoryInput">
+                  <option value="announcement">Соопштение</option>
+                  <option value="event">Настан</option>
+                  <option value="success">Успех</option>
+                  <option value="project">Проект</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Содржина</span>
+                <textarea id="newsBodyInput" rows="5" maxlength="900" placeholder="Напиши ја содржината на објавата…" required></textarea>
+              </label>
+              <label class="toggle-row">
+                <input type="checkbox" id="newsPinnedInput">
+                <span class="switch" aria-hidden="true"></span>
+                <span>Истакни ја објавата <small>се прикажува прва во вестите</small></span>
+              </label>
+              <div class="modal-actions">
+                <button class="btn btn-ghost" id="newsCancelBtn" type="button" hidden>Откажи уредување</button>
+                <button class="btn btn-primary" type="submit" id="newsSubmitBtn">
+                  <svg class="icon"><use href="#i-save"></use></svg>
+                  <span id="newsSubmitLabel">Објави</span>
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card admin-news-card" aria-labelledby="adminNewsTitle">
+            <div class="section-head">
+              <h2 id="adminNewsTitle">Управувај со вести</h2>
+              <span class="count-badge" id="adminNewsCount">0</span>
+            </div>
+            <div class="admin-news-list" id="adminNewsList"></div>
+            <div class="empty-state compact" id="adminNewsEmpty" hidden>
+              <span class="empty-icon"><svg class="icon"><use href="#i-news"></use></svg></span>
+              <strong>Нема објави</strong>
+              <p>Додај ја првата вест преку формуларот погоре.</p>
+            </div>
+          </section>
+
+          <section class="card admin-data-card" aria-labelledby="adminDataTitle">
+            <div class="section-head">
+              <div>
+                <h2 id="adminDataTitle">Локални податоци</h2>
+                <p class="section-subtitle">Резервна копија и управување</p>
+              </div>
+              <span class="tool-icon tone-gold"><svg class="icon"><use href="#i-clipboard"></use></svg></span>
+            </div>
+            <div class="data-actions">
+              <button class="btn btn-soft" id="dataExportBtn" type="button">
+                <svg class="icon"><use href="#i-download"></use></svg>
+                Извези копија
+              </button>
+              <label class="btn btn-ghost" for="dataImportInput">
+                <svg class="icon"><use href="#i-upload"></use></svg>
+                Увези копија
+              </label>
+              <input class="sr-only" id="dataImportInput" type="file" accept="application/json,.json">
+            </div>
+            <div class="danger-zone">
+              <div>
+                <strong>Ресетирај локални податоци</strong>
+                <p>Ќе се избришат вестите, известувањата, задачите, белешките и профилот на овој уред.</p>
+              </div>
+              <button class="btn btn-danger btn-sm" id="dataResetBtn" type="button">
+                <svg class="icon"><use href="#i-trash"></use></svg>
+                Ресетирај
+              </button>
+            </div>
+            <form class="pin-form" id="adminPinForm">
+              <label class="field">
+                <span>Нов ПИН код (4–8 цифри)</span>
+                <input id="adminNewPin" type="password" inputmode="numeric" pattern="[0-9]{4,8}" maxlength="8" placeholder="••••" required>
+              </label>
+              <button class="btn btn-soft" type="submit">
+                <svg class="icon"><use href="#i-lock"></use></svg>
+                Зачувај ПИН
+              </button>
+            </form>
+            <button class="btn btn-ghost btn-wide" id="adminLockBtn" type="button">
+              <svg class="icon"><use href="#i-lock"></use></svg>
+              Заклучи панел
+            </button>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <section class="group-screen" id="groupScreen" hidden aria-labelledby="groupScreenTitle">
+      <header class="group-screen-head">
+        <button class="icon-btn" id="groupBackBtn" type="button" aria-label="Назад кон групи" title="Назад">
+          <svg class="icon"><use href="#i-arrow-left"></use></svg>
+        </button>
+        <div class="group-screen-copy">
+          <h2 id="groupScreenTitle">Група</h2>
+          <span id="groupScreenMeta">0 членови · 0 пораки</span>
+        </div>
+        <button class="icon-btn" id="groupRenameBtn" type="button" aria-label="Преименувај група" title="Преименувај">
+          <svg class="icon"><use href="#i-edit"></use></svg>
+        </button>
+        <button class="icon-btn" id="groupAddMembersBtn" type="button" aria-label="Додај пријатели во групата" title="Додај пријатели" hidden>
+          <svg class="icon"><use href="#i-user"></use></svg>
+        </button>
+      </header>
+      <div class="group-screen-messages" id="groupScreenMessages"></div>
+      <form class="group-screen-compose" id="groupScreenForm" autocomplete="off">
+        <label class="sr-only" for="groupScreenInput">Порака во групата</label>
+        <input id="groupScreenInput" type="text" maxlength="200" placeholder="Напиши порака…" required>
+        <button class="icon-btn" type="submit" aria-label="Испрати порака">
+          <svg class="icon"><use href="#i-send"></use></svg>
+        </button>
+      </form>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Главна навигација">
+      <a class="nav-item is-active" href="#news" data-tab="news" aria-current="page">
+        <span class="nav-icon"><svg class="icon"><use href="#i-news"></use></svg></span>
+        <span>Вести</span>
+      </a>
+      <a class="nav-item" href="#groups" data-tab="groups">
+        <span class="nav-icon"><svg class="icon"><use href="#i-groups"></use></svg></span>
+        <span>Групи</span>
+      </a>
+      <a class="nav-item" href="#school" data-tab="school">
+        <span class="nav-icon"><svg class="icon"><use href="#i-school"></use></svg></span>
+        <span>Тестови</span>
+      </a>
+      <a class="nav-item nav-ai" href="#ai" data-tab="ai" aria-label="Владимир — училишен AI асистент">
+        <span class="nav-icon"><img class="ai-crest" src="icons/school-logo.svg" alt=""></span>
+        <span class="nav-label">Владимир</span>
+      </a>
+      <a class="nav-item" href="#settings" data-tab="settings">
+        <span class="nav-icon"><svg class="icon"><use href="#i-settings"></use></svg><span class="nav-badge" id="navUnread" hidden>0</span></span>
+        <span>Поставки</span>
+      </a>
+      <a class="nav-item" href="#me" data-tab="me">
+        <span class="nav-icon"><svg class="icon"><use href="#i-user"></use></svg></span>
+        <span>Јас</span>
+      </a>
+      <a class="nav-item" href="#admin" data-tab="admin">
+        <span class="nav-icon"><svg class="icon"><use href="#i-shield"></use></svg></span>
+        <span>Админ</span>
+      </a>
+    </nav>
+  </div>
+
+  <dialog class="modal" id="installDialog">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div><p class="eyebrow">Училишен портал</p><h2 id="installDialogTitle">Инсталирај ја апликацијата</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="install-guide">
+        <span class="install-guide-icon" aria-hidden="true"><img src="icons/school-logo.svg" alt=""></span>
+        <div id="installSteps"></div>
+      </div>
+      <p class="install-tip" id="installTip">Порталот работи офлајн и се отвора како самостојна апликација.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary btn-wide" type="button" data-close-dialog>Разбрав</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="profileDialog">
+    <form class="modal-card" id="profileForm">
+      <div class="modal-head">
+        <div><p class="eyebrow">Профил</p><h2>Уреди профил</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="avatar-editor">
+        <div class="avatar avatar-preview" id="avatarPreview">У</div>
+        <div class="avatar-edit-actions">
+          <label class="btn btn-soft btn-sm" for="avatarInput">
+            <svg class="icon"><use href="#i-camera"></use></svg>
+            Смени слика
+          </label>
+          <input class="sr-only" id="avatarInput" type="file" accept="image/*">
+          <button class="btn btn-ghost btn-sm" id="removeAvatarBtn" type="button">Отстрани</button>
+        </div>
+      </div>
+      <div class="field">
+        <span>Улога</span>
+        <div class="role-picker" id="profileRolePicker" role="group" aria-label="Избери улога">
+          <button class="role-option" type="button" data-role="student" aria-pressed="true">Ученик / Ученичка</button>
+          <button class="role-option" type="button" data-role="teacher" aria-pressed="false">Наставник / Наставничка</button>
+          <button class="role-option" type="button" data-role="parent" aria-pressed="false">Родител</button>
+        </div>
+      </div>
+      <label class="field">
+        <span>Име</span>
+        <input id="profileNameInput" type="text" maxlength="40" placeholder="Твоето име" required>
+      </label>
+      <label class="field">
+        <span>Одделение</span>
+        <input id="profileClassInput" type="text" maxlength="12" placeholder="На пример: VI-1">
+      </label>
+      <label class="field">
+        <span>Кратка биографија</span>
+        <textarea id="profileBioInput" rows="3" maxlength="160" placeholder="Со што се занимаваш?"></textarea>
+      </label>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-dialog>Откажи</button>
+        <button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-check"></use></svg>Зачувај</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="renameGroupDialog">
+    <form class="modal-card" id="renameGroupForm">
+      <div class="modal-head">
+        <div><p class="eyebrow">Група</p><h2>Преименувај група</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <label class="field">
+        <span>Име на групата</span>
+        <input id="renameGroupInput" type="text" maxlength="40" placeholder="На пример: Математика · VI-1" required>
+      </label>
+      <p class="field-hint">Новото име ќе се зачува на овој уред и ќе биде видливо за членовите на групата.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-dialog>Откажи</button>
+        <button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-check"></use></svg>Зачувај</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="addGroupDialog">
+    <form class="modal-card" id="addGroupForm">
+      <div class="modal-head">
+        <div><p class="eyebrow">Група</p><h2>Додај нова група</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <label class="field">
+        <span>Име на групата</span>
+        <input id="addGroupNameInput" type="text" maxlength="40" placeholder="На пример: Фудбалска група" required>
+      </label>
+      <label class="field">
+        <span>Предмет / тема</span>
+        <input id="addGroupSubjectInput" type="text" maxlength="40" placeholder="На пример: Спорт">
+      </label>
+      <label class="field">
+        <span>Икона</span>
+        <select id="addGroupIconInput">
+          <option value="groups">Група</option>
+          <option value="book">Книга</option>
+          <option value="calculator">Калкулатор</option>
+          <option value="flask">Експеримент</option>
+          <option value="clock">Историја</option>
+          <option value="globe">Јазик</option>
+          <option value="megaphone">Соопштение</option>
+          <option value="trophy">Спорт</option>
+        </select>
+      </label>
+      <p class="field-hint">Ката creatена група, ти ќе бидеш администратор и можеш да додаваш членови.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-dialog>Откажи</button>
+        <button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-plus"></use></svg>Креирај</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="addMembersDialog">
+    <form class="modal-card" id="addMembersForm">
+      <div class="modal-head">
+        <div><p class="eyebrow">Група</p><h2 id="addMembersTitle">Додај пријатели</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <div id="addMembersList"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-dialog>Откажи</button>
+        <button class="btn btn-primary" type="submit" id="addMembersConfirmBtn" disabled><svg class="icon"><use href="#i-check"></use></svg>Додај избрани</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="assignmentDialog">
+    <form class="modal-card" id="assignmentEditForm">
+      <div class="modal-head">
+        <div><p class="eyebrow">Задача</p><h2>Уреди тест или домашна</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <input id="editAssignmentId" type="hidden">
+      <label class="field">
+        <span>Наслов</span>
+        <input id="editAssignmentTitle" type="text" maxlength="100" required>
+      </label>
+      <label class="field">
+        <span>Предмет</span>
+        <select id="editAssignmentSubject">
+          <option>Македонски јазик</option>
+          <option>Математика</option>
+          <option>Англиски јазик</option>
+          <option>Природни науки</option>
+          <option>Историја</option>
+          <option>Географија</option>
+          <option>Физичко образование</option>
+          <option>Изборен предмет</option>
+        </select>
+      </label>
+      <div class="calc-fields">
+        <label class="field">
+          <span>Вид</span>
+          <select id="editAssignmentType">
+            <option value="test">Тест</option>
+            <option value="homework">Домашна</option>
+            <option value="project">Проект</option>
+            <option value="quiz">Квиз</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Рок</span>
+          <input id="editAssignmentDue" type="date" required>
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-dialog>Откажи</button>
+        <button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-check"></use></svg>Зачувај</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="noteEditDialog">
+    <form class="modal-card" id="noteEditForm">
+      <div class="modal-head">
+        <div><p class="eyebrow">Белешка</p><h2>Уреди белешка</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <input id="editNoteId" type="hidden">
+      <label class="field">
+        <span>Содржина</span>
+        <textarea id="editNoteText" rows="5" maxlength="240" required></textarea>
+      </label>
+      <div class="field">
+        <span>Боја</span>
+        <div class="color-picker" id="editNoteColors" role="group" aria-label="Боја на белешката">
+          <button class="color-dot note-yellow is-selected" type="button" data-edit-note-color="yellow" aria-label="Жолта" aria-pressed="true"></button>
+          <button class="color-dot note-mint" type="button" data-edit-note-color="mint" aria-label="Ментол" aria-pressed="false"></button>
+          <button class="color-dot note-pink" type="button" data-edit-note-color="pink" aria-label="Розова" aria-pressed="false"></button>
+          <button class="color-dot note-blue" type="button" data-edit-note-color="blue" aria-label="Сина" aria-pressed="false"></button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-dialog>Откажи</button>
+        <button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-check"></use></svg>Зачувај</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="confirmDialog">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div><p class="eyebrow">Потврда</p><h2 id="confirmTitle">Дали си сигурен?</h2></div>
+        <button class="icon-btn" type="button" data-close-dialog aria-label="Затвори"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <p class="confirm-text" id="confirmText">Оваа акција не може да се врати.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-dialog>Откажи</button>
+        <button class="btn btn-danger" id="confirmActionBtn" type="button">Потврди</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
